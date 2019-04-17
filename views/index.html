@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Exercise Tracker</title>
+    <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>Exercise tracker</h1>
+
+      <div class="wrapper">
+        <h2>Description</h2>
+        <p>This service allows to create users and assign exercises to them.<br>
+        The information about stored users and exercises assigned to them can be easily retrieved using our API!</p>
+      </div>
+
+      <div class="wrapper">
+        <h2>Create a new user</h2>
+        <form id="form-new-user" action="/api/exercise/new-user" method="post">
+          <input id="uname" class="input" type="text" name="username" placeholder="username">
+          <input id="button-new-user" class="button" type="button" value="Submit">
+        </form>
+      </div>
+
+      <div class="wrapper">
+        <h2>Get a list of all users</h2>
+        <a href="api/exercise/users"><span>https://impartial-taker.glitch.me/api/exercise/users</span></a>
+      </div>  
+
+      <div class="wrapper">
+        <h2>Add exercises</h2>
+        <form id="form-new-exercise" action="/api/exercise/add" method="post">
+          <input id="uid" class="input" type="text" name="userId" placeholder="userId*">
+          <input id="desc" class="input" type="text" name="description" placeholder="description*">
+          <input id="dur" class="input" type="number" name="duration" min="1" placeholder="duration in mins*">
+          <input id="dat" class="input" type="text" name="date" placeholder="date" onfocus="(this.type = 'date')">
+          <input id="button-new-exercise" class="button" type="button" value="Submit">
+        </form>
+        <p class="small">* - required field</p>
+      </div> 
+
+      <div class="wrapper">
+        <h2>Get user's exercise log</h2>
+        <h3>API call</h3>
+        <span>/api/exercise/log?{userId}[&from][&to][&limit]</span>
+        <p id="info" class="small">{ } = required, [ ] = optional<br>
+        from, to = dates (yyyy-mm-dd); limit = number</p>
+        <h3>Example Usage</h3>
+        <a href="api/exercise/log?userId=xkuZUKjCo&from=2019-03-01&to=2019-04-15&limit=2"><span>
+          https://impartial-taker.glitch.me/api/exercise/log?userId=xkuZUKjCo&from=2019-03-01&to=2019-04-15&limit=2</span></a>
+      </div> 
+
+    </div>
+    <script src="script.js"></script>
+  </body>
+
+</html>
